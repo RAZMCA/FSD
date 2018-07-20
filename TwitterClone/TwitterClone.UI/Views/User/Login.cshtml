@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+<table>
+    <tr>
+        <td>Username</td>
+        <td>@Html.TextBox("uname")</td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td>@Html.Password("pwd")</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="SignIn" /></td>
+       
+    </tr>
+</table>
+}
+@Html.ActionLink("New User??","Create") <br />
+<span class="warning">@TempData["err"]</span>
