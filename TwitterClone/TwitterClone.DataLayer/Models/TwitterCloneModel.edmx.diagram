@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="929aa52829574d42b1dc41b9039cff88" Name="Diagram1">
+      <Diagram DiagramId="996dfae8dfc940f79047070a41349d3c" Name="Diagram1">
         <EntityTypeShape EntityType="TwitterCloneModel.Person" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="TwitterCloneModel.Tweet" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="TwitterCloneModel.FK_Tweet_Person" ManuallyRouted="false" />

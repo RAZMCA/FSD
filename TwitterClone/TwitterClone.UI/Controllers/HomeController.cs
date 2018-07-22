@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TwitterClone.UI.Models;
 
 namespace TwitterClone.UI.Controllers
 {
@@ -10,7 +11,29 @@ namespace TwitterClone.UI.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["UserName"] != null)
+                return View();
+            else
+                return RedirectToAction("Login", "User");
+        }
+
+        [HttpGet]
+        public ActionResult Index(string search)
+        {
+            string queryString = Request.QueryString["search"];
+            Search searchResult = new Search(); 
+            if (string.IsNullOrEmpty(queryString))
+            {
+                if (Session["UserName"] != null)
+                    return View();
+                else
+                    return RedirectToAction("Login", "User");
+            }
+            else
+            {
+                searchResult.showDialog = true;
+                return RedirectToAction("Index", "Home", searchResult);
+            }
         }
 
         public ActionResult About()

@@ -53,7 +53,9 @@ namespace TwitterClone.UI.Controllers
             Person p = obj.Validate(uname, pwd);
             if (p != null)
             {
-                return RedirectToAction("Details", p);
+                //return RedirectToAction("Details", p);
+                Session["UserName"] = p.FullName;
+                return RedirectToAction("Index","Home", p);
             }
             else
             {

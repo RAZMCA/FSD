@@ -11,8 +11,7 @@ namespace TwitterClone.DataLayer.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Person
     {
         public Person()
@@ -21,7 +20,7 @@ namespace TwitterClone.DataLayer.Models
             this.Person1 = new HashSet<Person>();
             this.People = new HashSet<Person>();
         }
-        [Key]
+    
         public string UserId { get; set; }
         public string Password { get; set; }
         public string FullName { get; set; }

@@ -18,8 +18,7 @@ namespace TwitterClone.DataLayer.Models
         public TwitterCloneEntities1()
             : base("name=TwitterCloneEntities1")
         {
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
