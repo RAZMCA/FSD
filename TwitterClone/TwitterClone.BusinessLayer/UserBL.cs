@@ -26,5 +26,13 @@ namespace TwitterClone.BusinessLayer
                 return obj;
             }
         }
+        public Person SearchUser(string uname)
+        {
+            using (TwitterCloneEntities1 db = new TwitterCloneEntities1())
+            {
+                Person obj = db.People.FirstOrDefault(i => i.UserId.Contains(uname));
+                return obj;
+            }
+        }
     }
 }
