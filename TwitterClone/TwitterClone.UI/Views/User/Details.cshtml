@@ -1,17 +1,68 @@
-﻿@model TwitterClone.DataLayer.Models.Person
-
+﻿@model TwitterClone.UI.Models.PersonVM
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Profile Details";
 }
 
-<h2>Details</h2>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
 
-<div>
-    <h4>Person</h4>
-    <hr />
-   <h1>Welcome @Model.FullName</h1>
-</div>
-<p>
-  
-    @Html.ActionLink("LogOut", "Login")
-</p>
+    $(document).ready(function () {
+        $("#btnUpdate").click(function (e) {
+            alert($("#Email").val($(this).val()));
+            $.ajax({
+                type: "POST",
+                url: "/User/UpdateUser",
+                contentType: "application/json; charset=utf-8",
+                data: '{"UseId": @Session["UserId"], "Email": "' + $("#Email").val() + '", "FullName":"' + $("#Name").val() + '"}',
+                dataType: "html",
+                success: function (result) {
+                    alert("Updated Successfull");
+                    //refreshData();
+                },
+                error: function (error) {
+                    alert("Error");
+                }
+            });
+        });
+
+    });
+</script>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Your Details</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserId, "User Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, "Full Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Save Changes" id="btnUpdate" class="btn btn-default col-xs-10" />
+            </div>
+        </div>
+    </div>
+}

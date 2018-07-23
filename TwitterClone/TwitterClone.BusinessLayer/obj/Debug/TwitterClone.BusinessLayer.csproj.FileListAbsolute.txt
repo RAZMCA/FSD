@@ -41,3 +41,13 @@ C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.BusinessLayer\bin\De
 C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.BusinessLayer\obj\Debug\TwitterClone.BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.BusinessLayer\obj\Debug\TwitterClone.BusinessLayer.dll
 C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.BusinessLayer\obj\Debug\TwitterClone.BusinessLayer.pdb
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\bin\Debug\TwitterClone.BusinessLayer.dll.config
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\bin\Debug\TwitterClone.BusinessLayer.dll
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\bin\Debug\TwitterClone.BusinessLayer.pdb
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\bin\Debug\EntityFramework.dll
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\bin\Debug\TwitterClone.DataLayer.dll
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\bin\Debug\TwitterClone.DataLayer.pdb
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\bin\Debug\EntityFramework.xml
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\obj\Debug\TwitterClone.BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\obj\Debug\TwitterClone.BusinessLayer.dll
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.BusinessLayer\obj\Debug\TwitterClone.BusinessLayer.pdb

@@ -64,10 +64,34 @@ namespace TwitterClone.UI.Controllers
                 return View();
             }
         }
-        public ViewResult Details(Person p)
+        public ViewResult Details(string userId)
         {
-            return View(p);
+            Person objPerson = obj.GetUserDetails(userId);
+            PersonVM personVM = null;
+            if (objPerson != null)
+            {
+                personVM = new PersonVM();
+                personVM.UserId = objPerson.UserId;
+                personVM.Name = objPerson.FullName;
+                personVM.Email = objPerson.Email;
+            }
+
+            return View(personVM);
         }
 
+        public JsonResult UpdateUser(PersonVM user)
+        {
+            Person p = new Person()
+            {
+                UserId = user.UserId,
+                Email = user.Email,
+                FullName = user.Name,
+            };
+            obj.UpdateUser(p);
+
+            var result = "success";
+            return Json(result, JsonRequestBehavior.AllowGet);
+
+        }
     }
 }

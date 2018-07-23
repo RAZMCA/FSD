@@ -15,7 +15,7 @@
             else {
                 $.ajax({
                     type: "POST",
-                    url: "/Home/ManageTweet",
+                    url: "/Home/SaveTweet",
                     contentType: "application/json; charset=utf-8",
                     data: '{"tweetId":"' + 0 + '", "message":"' + $("#comment").val() + '"}',
                     dataType: "html",
@@ -57,9 +57,9 @@
                     <input type="text" class="form-control" name="search" id="search" placeholder="search">
                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                 </div>
-                <lable class="row col-lg-offset-2">3 Tweets</lable>
-                <lable class="row col-lg-offset-2">1 Following</lable>
-                <lable class="row col-lg-offset-3">5 Followers</lable>
+                <lable class="row col-lg-offset-2"><a href="#">3</a> Tweets</lable>
+                <lable class="row col-lg-offset-2"><a href="#">1</a> Following</lable>
+                <lable class="row col-lg-offset-3"><a href="#">5</a> Followers</lable>
             </form>
         </div>
         <div class="col-lg-offset-3">

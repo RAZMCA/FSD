@@ -34,5 +34,29 @@ namespace TwitterClone.BusinessLayer
                 return obj;
             }
         }
+
+        public Person GetUserDetails(string userId)
+        {
+            using (TwitterCloneEntities db = new TwitterCloneEntities())
+            {
+                Person obj = db.People.FirstOrDefault(i => i.UserId == userId);
+                return obj;
+            }
+        }
+        public void UpdateUser(Person item)
+        {
+            using (TwitterCloneEntities db = new TwitterCloneEntities())
+            {
+                var user = db.People.Where(x => x.UserId == item.UserId).FirstOrDefault();
+                if(user != null)
+                {
+                    user.FullName = item.FullName;
+                    user.Email = item.Email;
+                    db.Entry(user).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                
+            }
+        }
     }
 }

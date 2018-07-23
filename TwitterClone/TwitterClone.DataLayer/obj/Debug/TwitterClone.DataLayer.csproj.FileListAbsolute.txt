@@ -31,3 +31,11 @@ C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.DataLayer\bin\Debug\
 C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.DataLayer\obj\Debug\TwitterClone.DataLayer.csprojResolveAssemblyReference.cache
 C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.DataLayer\obj\Debug\TwitterClone.DataLayer.dll
 C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.DataLayer\obj\Debug\TwitterClone.DataLayer.pdb
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.DataLayer\bin\Debug\TwitterClone.DataLayer.dll.config
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.DataLayer\bin\Debug\TwitterClone.DataLayer.dll
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.DataLayer\bin\Debug\TwitterClone.DataLayer.pdb
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.DataLayer\bin\Debug\EntityFramework.dll
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.DataLayer\bin\Debug\EntityFramework.xml
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.DataLayer\obj\Debug\TwitterClone.DataLayer.csprojResolveAssemblyReference.cache
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.DataLayer\obj\Debug\TwitterClone.DataLayer.dll
+D:\Raj\Misc\FSD_MVC\TwitterClone\TwitterClone.DataLayer\obj\Debug\TwitterClone.DataLayer.pdb

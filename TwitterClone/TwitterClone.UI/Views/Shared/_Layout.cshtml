@@ -22,7 +22,7 @@
                 <ul class="nav navbar-nav">
                     <li style="color:darkgray;padding-top:15px;">Welcome @Session["UserName"]!</li>
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Profile", "About", "Home")</li>
+                    <li>@Html.ActionLink("Profile", "Details", "User", new { userId = @Session["UserId"] },null)</li>
                     <li>@Html.ActionLink("SignOut", "Contact", "Home")</li>
                 </ul>
             </div>
