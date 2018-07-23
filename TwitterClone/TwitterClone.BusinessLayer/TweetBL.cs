@@ -9,15 +9,48 @@ namespace TwitterClone.BusinessLayer
 {
     public class TweetBL
     {
-        public void GetTweets(string userId)
+        public List<Tweet> GetTweets(string userId)
         {
-            using (TwitterCloneEntities1 db = new TwitterCloneEntities1())
+            List<Tweet> tweets = new List<Tweet>();
+            using (TwitterCloneEntities db = new TwitterCloneEntities())
             {
-                //var tweetList = from tweet in db.Tweets
-                //                join follow in db.foll  .Where(x => t1.ProjectID == x.ProjectID && x.Completed == true)
-                //                                .DefaultIfEmpty()
-                //                select new { t1.ProjectName, t2.TaskName }
+                tweets = (from t in db.Tweets                                
+                                 where t.UserId == userId
+                                 select t
+                                ).OrderBy(x => x.CreatedDate).ToList();              
+                                
             }
+            return tweets;
+        }
+
+        public void SaveTweet(Tweet tweet)
+        {
+            using (TwitterCloneEntities db = new TwitterCloneEntities())
+            {
+                if (tweet.TweetId == 0)
+                {
+                    db.Tweets.Add(tweet);
+                }
+                else
+                {
+                    Tweet t;
+                    t = GetTweetById(tweet.TweetId);
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public Tweet GetTweetById(int tweetId)
+        {
+            Tweet tweet = new Tweet();
+            using (TwitterCloneEntities db = new TwitterCloneEntities())
+            {
+                tweet = (from t in db.Tweets
+                          where t.TweetId == tweetId
+                          select t).SingleOrDefault();
+
+            }
+            return tweet;
         }
     }
 }

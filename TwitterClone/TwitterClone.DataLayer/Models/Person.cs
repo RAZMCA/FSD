@@ -16,9 +16,9 @@ namespace TwitterClone.DataLayer.Models
     {
         public Person()
         {
+            this.Followings = new HashSet<Following>();
+            this.Followings1 = new HashSet<Following>();
             this.Tweets = new HashSet<Tweet>();
-            this.Person1 = new HashSet<Person>();
-            this.People = new HashSet<Person>();
         }
     
         public string UserId { get; set; }
@@ -28,8 +28,8 @@ namespace TwitterClone.DataLayer.Models
         public System.DateTime Joined { get; set; }
         public bool Active { get; set; }
     
+        public virtual ICollection<Following> Followings { get; set; }
+        public virtual ICollection<Following> Followings1 { get; set; }
         public virtual ICollection<Tweet> Tweets { get; set; }
-        public virtual ICollection<Person> Person1 { get; set; }
-        public virtual ICollection<Person> People { get; set; }
     }
 }

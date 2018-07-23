@@ -12,7 +12,7 @@ namespace TwitterClone.BusinessLayer
     {
         public void AddUser(Person item)
         {
-            using (TwitterCloneEntities1 db = new TwitterCloneEntities1())
+            using (TwitterCloneEntities db = new TwitterCloneEntities())
             {
                 db.People.Add(item);
                 db.SaveChanges();
@@ -20,7 +20,7 @@ namespace TwitterClone.BusinessLayer
         }
         public Person Validate(string uname,string pwd)
         {
-            using (TwitterCloneEntities1 db = new TwitterCloneEntities1())
+            using (TwitterCloneEntities db = new TwitterCloneEntities())
             {
                 Person obj = db.People.FirstOrDefault(i => i.UserId == uname && i.Password == pwd);
                 return obj;
@@ -28,7 +28,7 @@ namespace TwitterClone.BusinessLayer
         }
         public Person SearchUser(string uname)
         {
-            using (TwitterCloneEntities1 db = new TwitterCloneEntities1())
+            using (TwitterCloneEntities db = new TwitterCloneEntities())
             {
                 Person obj = db.People.FirstOrDefault(i => i.UserId.Contains(uname));
                 return obj;

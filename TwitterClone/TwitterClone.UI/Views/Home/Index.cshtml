@@ -1,8 +1,45 @@
-﻿@using TwitterClone.UI.Models;
+﻿@*@model TwitterClone.UI.Models.TweetVM;*@
+@model TwitterClone.UI.Models.TweetVM
 
 @{
     ViewBag.Title = "Twitter stream";
+    var currentTweetId = 0;
 }
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>    
+<script>
+
+    $(document).ready(function () {
+        $("#btnTweet").click(function (e) {
+            if ($("#comment").val() == "")
+                alert("Please enter your message");
+            else {
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/ManageTweet",
+                    contentType: "application/json; charset=utf-8",
+                    data: '{"tweetId":"' + 0 + '", "message":"' + $("#comment").val() + '"}',
+                    dataType: "html",
+                    success: function (result) {
+                        $("#comment").text('');
+                        //refreshData();
+                    },
+                    error: function (error) {
+                        alert("Error");
+                    }
+                });
+            }
+            return false;
+        });
+
+        $("#aMessage").click(function (e) {
+            $("#comment").val(this.innerHTML);
+            $("#btnTweet").hide();
+            $("#btnDelete").show();
+            $("#btnUpdate").show();
+            //currentTweetId = 
+        });
+    });
+</script>  
 <div class="container row searchdiv">
     <div class="row">
         <div class="col-lg-3">
@@ -26,16 +63,41 @@
             </form>
         </div>
         <div class="col-lg-offset-3">
-            <textarea class="form-control" style="min-width: 100%" rows="5" id="comment"></textarea>
+            <textarea class="form-control" style="min-width: 100%" rows="5" id="comment" maxlength="140"></textarea>
         </div>
         <div class="col-lg-10" style="padding:30px;">
             @*<label class="col-lg-offset-1"> Tweets</label>*@
-            <input type="button" class="row btn col-sm-1" value="Tweet" style="float:right;" />
+            <input type="button" id="btnDelete" class="row btn col-sm-1" value="Delete" style="float:right;display:none;" />
+            <input type="button" id="btnUpdate" class="row btn col-sm-1" value="Update" style="float:right;display:none;" />       
+            <input type="button" id="btnTweet" class="row btn col-sm-1" value="Tweet" style="float:right;" />         
         </div>
     </div>
     <div class="col-lg-offset-3 panel panel-default">
         <div class="panel-heading"><strong>Tweets</strong></div>
-        <div class="panel-body" style="height:300px;"></div>
+        <div class="panel-body" style="height:300px;">
+            @foreach (var item in Model.Tweets)
+            {
+                <div class="row">
+                    <div class="column">
+                        <span>@item.UserId</span>
+                    </div>
+                    <div class="column">
+                        @if (Session["UserId"].ToString() == item.UserId)
+                        {
+                            <span><a id="aMessage">@item.Message</a></span>
+                        }
+                        else
+                        {
+                            <span>@item.Message</span>
+                        }
+                        <input type="hidden" id="hTweetId" value="@item.TweetId"/>
+                    </div>
+                    <div class="column">
+                        <span>@((item.CreatedDate.Date == DateTime.Today.Date)?item.CreatedDate.ToShortTimeString():item.CreatedDate.ToShortDateString())</span>
+                    </div>
+                </div>
+            }
+        </div>
     </div>
     @*<div>
             <lable class="col-lg-pull-5">3 Tweets</lable>
@@ -45,4 +107,6 @@
 </div>
 
 @Html.Partial("_PartialSearchDialog");
+
+
 

@@ -55,6 +55,7 @@ namespace TwitterClone.UI.Controllers
             {
                 //return RedirectToAction("Details", p);
                 Session["UserName"] = p.FullName;
+                Session["UserId"] = p.UserId;
                 return RedirectToAction("Index","Home", p);
             }
             else

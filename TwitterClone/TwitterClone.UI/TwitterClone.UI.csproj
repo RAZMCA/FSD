@@ -161,6 +161,7 @@
     </Compile>
     <Compile Include="Models\PersonVM.cs" />
     <Compile Include="Models\Search.cs" />
+    <Compile Include="Models\TweetVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

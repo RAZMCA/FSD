@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Raj\FSD\Assignment Output\TwitterClone\TwitterClone\TwitterClone.DataLayer\Models\TwitterCloneModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\484947\Source\Repos\FSD2\TwitterClone\TwitterClone.DataLayer\Models\TwitterCloneModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

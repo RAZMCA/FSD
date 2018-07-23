@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Following.cs">
+      <DependentUpon>TwitterCloneModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Person.cs">
       <DependentUpon>TwitterCloneModel.tt</DependentUpon>
     </Compile>

@@ -11,7 +11,8 @@ namespace TwitterClone.UI.Controllers
 {
     public class HomeController : Controller
     {
-        UserBL objUser = new UserBL();
+        UserBL userBL = new UserBL();
+        TweetBL tweetBL = new TweetBL();
         public ActionResult Index()
         {
             if (Session["UserName"] != null)
@@ -23,6 +24,7 @@ namespace TwitterClone.UI.Controllers
         [HttpGet]
         public ActionResult Index(string search)
         {
+            TweetVM tweetVM = new Models.TweetVM();
             string queryString = Request.QueryString["search"];
             Search searchResult = new Search();
             if (string.IsNullOrEmpty(queryString))
@@ -30,8 +32,8 @@ namespace TwitterClone.UI.Controllers
                 if (Session["UserName"] != null)
                 {
                     // TODO:: Get the list of tweets from the logged in user and his followings
-                    //List<Tweet> listTweet = objUser.;
-                    return View();
+                    tweetVM.Tweets = tweetBL.GetTweets(Session["UserId"].ToString());
+                    return View(tweetVM);
                 }
                 else
                     return RedirectToAction("Login", "User");
@@ -39,7 +41,7 @@ namespace TwitterClone.UI.Controllers
             else
             {
                 //TODO:: Send the username with userid to Modal dialog where user can do FOLLOW and UNFOLLOW
-                Person objPerson = objUser.SearchUser(queryString);
+                Person objPerson = userBL.SearchUser(queryString);
                 if (objPerson != null)
                     searchResult.showDialog = true;
                 return PartialView("_PartialSearchDialog", objPerson);
@@ -60,5 +62,34 @@ namespace TwitterClone.UI.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public JsonResult SaveTweet(int tweetId, String message)
+        {
+            Tweet tweet = new Tweet();
+            tweet.Message = message;
+            tweet.UserId = Session["UserId"].ToString();
+            tweet.CreatedDate = DateTime.Now;
+            tweet.TweetId = tweetId;
+
+            tweetBL.SaveTweet(tweet);
+
+            var result = "success";
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+      
+        //public JsonResult SaveTweet(String message)
+        //{
+        //    Tweet tweet = new Tweet();
+        //    tweet.Message = message;
+        //    tweet.UserId = Session["UserId"].ToString();
+        //    tweet.CreatedDate = DateTime.Now;
+
+        //    tweetBL.SaveTweet(tweet);
+
+        //    var result = "success";
+        //    return Json(result, JsonRequestBehavior.AllowGet);
+        //}
     }
 }
