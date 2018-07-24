@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TweetBL.cs" />
     <Compile Include="UserBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -22,15 +22,3 @@ select,
 textarea {
     max-width: 280px;
 }
-
-.warning{
-    color:red;
-    font-weight:bold;
-}
-
-.searchdiv {
-    padding:50px 10px 5px 5px;
-}
-.newtweet{
-    padding:50px 10px 5px 5px;
-}

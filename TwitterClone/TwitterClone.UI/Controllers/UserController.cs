@@ -53,10 +53,7 @@ namespace TwitterClone.UI.Controllers
             Person p = obj.Validate(uname, pwd);
             if (p != null)
             {
-                //return RedirectToAction("Details", p);
-                Session["UserName"] = p.FullName;
-                Session["UserId"] = p.UserId;
-                return RedirectToAction("Index","Home", p);
+                return RedirectToAction("Details", p);
             }
             else
             {
@@ -64,34 +61,10 @@ namespace TwitterClone.UI.Controllers
                 return View();
             }
         }
-        public ViewResult Details(string userId)
+        public ViewResult Details(Person p)
         {
-            Person objPerson = obj.GetUserDetails(userId);
-            PersonVM personVM = null;
-            if (objPerson != null)
-            {
-                personVM = new PersonVM();
-                personVM.UserId = objPerson.UserId;
-                personVM.Name = objPerson.FullName;
-                personVM.Email = objPerson.Email;
-            }
-
-            return View(personVM);
+            return View(p);
         }
 
-        public JsonResult UpdateUser(PersonVM user)
-        {
-            Person p = new Person()
-            {
-                UserId = user.UserId,
-                Email = user.Email,
-                FullName = user.Name,
-            };
-            obj.UpdateUser(p);
-
-            var result = "success";
-            return Json(result, JsonRequestBehavior.AllowGet);
-
-        }
     }
 }

@@ -13,10 +13,10 @@ namespace TwitterClone.DataLayer.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TwitterCloneEntities : DbContext
+    public partial class TwitterCloneEntities1 : DbContext
     {
-        public TwitterCloneEntities()
-            : base("name=TwitterCloneEntities")
+        public TwitterCloneEntities1()
+            : base("name=TwitterCloneEntities1")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
@@ -27,7 +27,6 @@ namespace TwitterClone.DataLayer.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Following> Followings { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Tweet> Tweets { get; set; }
     }
